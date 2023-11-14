@@ -2,8 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CarController;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\get_controler;
+
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,3 +34,6 @@ Route::controller(get_controler::class)->group(function(){
     Route::get('division/{n1}/{n2}','division')->where(['n1' => '[0-9]+', 'n2' => '[0-9]+']);
 });
 
+
+Route::get('/cars', [CarController::class, 'index']);
+Route::get('/cars/{car}', [CarController::class, 'show']);
